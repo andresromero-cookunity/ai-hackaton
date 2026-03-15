@@ -1,0 +1,567 @@
+/* ─── Page Layout ──────────────────────────────────────────────── */
+.page {
+  padding-bottom: 60px;
+}
+
+.hero {
+  text-align: center;
+  padding: 48px 20px 32px;
+}
+
+.heroKicker {
+  margin: 0 0 8px;
+  color: #0f766e;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  margin: 0 0 12px;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 800;
+  line-height: 1.1;
+  background: linear-gradient(135deg, #0f766e 0%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.heroSub {
+  margin: 0;
+  color: #5b6472;
+  font-size: 16px;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ─── Two-column layout ────────────────────────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  gap: 32px;
+  align-items: start;
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 800px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── Preview Column ───────────────────────────────────────────── */
+.previewColumn {
+  position: sticky;
+  top: 100px;
+}
+
+.sectionLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9ca3af;
+  margin: 0 0 12px;
+}
+
+.cardPreviewOuter {
+  perspective: 800px;
+}
+
+.cardPreview {
+  border-radius: 20px;
+  border: 2px solid #e5e7eb;
+  padding: 28px 24px 20px;
+  min-height: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: background 0.3s, border-color 0.3s;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.cardPreviewHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cardBrand {
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  transition: color 0.3s;
+}
+
+.cardTag {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: white;
+  padding: 3px 10px;
+  border-radius: 999px;
+  transition: background 0.3s;
+}
+
+.cardAmount {
+  font-size: 52px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+  transition: color 0.3s;
+}
+
+.cardLines {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.cardLine {
+  height: 8px;
+  border-radius: 999px;
+  width: 100%;
+  transition: background 0.3s;
+}
+
+.cardRecipient {
+  margin: 0;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.cardMessage {
+  margin: 0;
+  font-size: 13px;
+  color: #374151;
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.cardSender {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.cardFooter {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+}
+
+.cardBarcode {
+  font-family: monospace;
+  font-size: 11px;
+  color: #9ca3af;
+  letter-spacing: 2px;
+}
+
+.cardCode {
+  font-size: 11px;
+  font-weight: 700;
+  color: #9ca3af;
+  letter-spacing: 1px;
+}
+
+.previewHints {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 16px;
+}
+
+.previewHints span {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* ─── Form Column ──────────────────────────────────────────────── */
+.formColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ─── Stepper ──────────────────────────────────────────────────── */
+.stepper {
+  display: flex;
+  gap: 0;
+  counter-reset: step;
+}
+
+.stepItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+  font-size: 13px;
+  font-weight: 600;
+  color: #9ca3af;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #e5e7eb;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.stepActive {
+  color: #0f766e;
+  border-bottom-color: #0f766e;
+}
+
+.stepDone {
+  color: #10b981;
+  border-bottom-color: #10b981;
+}
+
+.stepDot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+
+.stepActive .stepDot {
+  background: #0f766e;
+  color: white;
+}
+
+.stepDone .stepDot {
+  background: #10b981;
+  color: white;
+}
+
+/* ─── Form Card ────────────────────────────────────────────────── */
+.formCard {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+}
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.stepTitle {
+  margin: 0 0 24px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+/* ─── Amount Selector ──────────────────────────────────────────── */
+.fieldLabel {
+  display: block;
+  font-size: 13px;
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+.amountGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.amountBtn {
+  padding: 12px 8px;
+  border-radius: 10px;
+  border: 2px solid #e5e7eb;
+  background: white;
+  font-size: 15px;
+  font-weight: 700;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.amountBtn:hover {
+  border-color: #0f766e;
+  color: #0f766e;
+}
+
+.amountBtnActive {
+  border-color: #0f766e;
+  background: #f0fdf4;
+  color: #0f766e;
+}
+
+.customAmountWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.currencySymbol {
+  font-size: 20px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.customAmountInput {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 2px solid #0f766e;
+  font-size: 18px;
+  font-weight: 700;
+  color: #111827;
+  outline: none;
+}
+
+/* ─── Theme Grid ───────────────────────────────────────────────── */
+.themeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.themeBtn {
+  padding: 12px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: var(--theme-bg, #f3f4f6);
+  color: var(--theme-accent, #374151);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+}
+
+.themeBtn:hover {
+  border-color: var(--theme-accent, #374151);
+}
+
+.themeBtnActive {
+  border-color: var(--theme-accent, #374151);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--theme-accent, #374151) 15%, transparent);
+}
+
+/* ─── Inputs ───────────────────────────────────────────────────── */
+.input {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #d1d5db;
+  font-size: 15px;
+  color: #111827;
+  outline: none;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  border-color: #0f766e;
+}
+
+.textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: 1.5px solid #d1d5db;
+  font-size: 14px;
+  color: #111827;
+  outline: none;
+  resize: vertical;
+  font-family: inherit;
+  transition: border-color 0.15s;
+  box-sizing: border-box;
+}
+
+.textarea:focus {
+  border-color: #0f766e;
+}
+
+.charCount {
+  font-size: 12px;
+  color: #9ca3af;
+  text-align: right;
+  margin: 4px 0 0;
+}
+
+/* ─── Radio Cards ──────────────────────────────────────────────── */
+.radioGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.radioCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 14px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.radioCard input {
+  margin-top: 2px;
+  accent-color: #0f766e;
+}
+
+.radioCard div strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+
+.radioCard div p {
+  margin: 0;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.radioCardActive {
+  border-color: #0f766e;
+  background: #f0fdf4;
+}
+
+/* ─── Review Table ─────────────────────────────────────────────── */
+.reviewTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.reviewTable tr:not(:last-child) td {
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.reviewLabel {
+  padding: 10px 0;
+  font-size: 13px;
+  font-weight: 700;
+  color: #6b7280;
+  width: 120px;
+  vertical-align: top;
+}
+
+.reviewValue {
+  padding: 10px 0;
+  font-size: 14px;
+  color: #111827;
+}
+
+.reviewNotice {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  padding: 14px;
+  font-size: 13px;
+  color: #065f46;
+}
+
+/* ─── Form Actions ─────────────────────────────────────────────── */
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 28px;
+  padding-top: 20px;
+  border-top: 1px solid #f3f4f6;
+}
+
+.btnPrimary {
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #0f766e, #0d9488);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+}
+
+.btnPrimary:hover:not(:disabled) {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.btnPrimary:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.btnSecondary {
+  padding: 12px 20px;
+  background: white;
+  color: #374151;
+  border: 1.5px solid #d1d5db;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.btnSecondary:hover {
+  border-color: #6b7280;
+}
+
+/* ─── Success Screen ───────────────────────────────────────────── */
+.successWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  padding: 40px 20px;
+}
+
+.successCard {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 48px 40px;
+  text-align: center;
+  max-width: 440px;
+  width: 100%;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+}
+
+.successIcon {
+  font-size: 56px;
+  margin-bottom: 16px;
+}
+
+.successCard h2 {
+  margin: 0 0 12px;
+  font-size: 24px;
+}
+
+.successCard p {
+  margin: 0 0 8px;
+  color: #374151;
+  font-size: 15px;
+}
+
+.successSub {
+  color: #6b7280 !important;
+  font-size: 13px !important;
+  margin-bottom: 28px !important;
+}
